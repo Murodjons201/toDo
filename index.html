@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/main.min.css">
     <title>starter</title>
 </head>
+
 <body>
 
     <!-- HEADER -->
@@ -16,6 +18,28 @@
 
     <!-- MAIN -->
     <main class="main">
+
+        <section>
+            <div class="container mt-5 mx-auto">
+                <h1 class="h1 text-success text-center mb-3">ToDo</h1>
+                <form class="form d-flex flex-column align-items-center mb-3 mx-auto">
+                    <label class="form-label mb-3 ">
+                        <input class="form__input-name border mb-2 border-primary form-control" type="text"
+                            name="user_name" placeholder="Isminggizkiriting:" required autocomplete="off">
+                        <input class="form__input r border border-primary form-control" type="text" name="user_todo"
+                            placeholder="kunlik rejanggizni kiriting:" required autocomplete="off">
+
+                    </label>
+                    <button class="btn btn-primary " type="submit">result</button>
+                </form>
+                <div class="d-flex flex-column align-items-center">
+                    <h2 class="to__do__heading h3 mb-3 text-center text-info"></h2>
+                    <ul
+                        class="list-group to__do__list list-group text-center fs-5 fw-bold mx-auto display-6 list-group">
+                    </ul>
+                </div>
+            </div>
+        </section>
 
     </main>
 
@@ -30,4 +54,5 @@
     <script src="./js/script.js"></script>
 
 </body>
+
 </html>

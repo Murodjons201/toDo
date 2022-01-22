@@ -1,0 +1,33 @@
+.list {
+  list-style: none;
+}
+
+.list__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  border: 2px solid #71aafe;
+  border-radius: 15px;
+  color: #3573fd;
+}
+
+.list__item-desc {
+  overflow: auto;
+  margin: 0 30px 0 10px;
+  margin-right: auto;
+  padding: 0;
+  color: #3573fd;
+}
+
+.list__item-desc-check {
+  text-decoration: line-through;
+  color: #414650;
+}
+
+.delete-btn {
+  background-color: #fff;
+  border: 2px solid #3573fd;
+  border-radius: 3px;
+}

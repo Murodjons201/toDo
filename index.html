@@ -26,16 +26,23 @@
                     <label class="form-label mb-3 ">
                         <input class="form__input-name border mb-2 border-primary form-control" type="text"
                             name="user_name" placeholder="Isminggizkiriting:" required autocomplete="off">
-                        <input class="form__input r border border-primary form-control" type="text" name="user_todo"
+                        <input class="form__input border border-primary form-control" type="text" name="user_todo"
                             placeholder="kunlik rejanggizni kiriting:" required autocomplete="off">
-
                     </label>
-                    <button class="btn btn-primary " type="submit">result</button>
+                    <button class="btn btn-primary " type="submit">Add</button>
                 </form>
+                <div class="button-wrapper d-flex mx-auto mb-3 align-items-center justify-content-center">
+                    <button class="btn-all rounded border-1 border-primary bg-light">All <span
+                            class="all-count text-primary">0</span></button>
+                    <button class="btn-completed rounded border-1 border-primary bg-light mx-2">Completed <span
+                            class="completed-count text-primary">0</span></button>
+                    <button class="btn-uncompleted rounded border-1 border-primary bg-light">Uncompleted <span
+                            class="uncompleted-count text-primary">0</span></button>
+                </div>
                 <div class="d-flex flex-column align-items-center">
-                    <h2 class="to__do__heading h3 mb-3 text-center text-info"></h2>
+                    <h2 class="todo__heading h3 mb-3 text-center text-info"></h2>
                     <ul
-                        class="list-group to__do__list list-group text-center fs-5 fw-bold mx-auto display-6 list-group">
+                        class="list list-group list-group text-center w-50 fs-5 fw-bold mx-auto display-6 d-inline-block list-group">
                     </ul>
                 </div>
             </div>

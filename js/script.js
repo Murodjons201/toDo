@@ -45,18 +45,18 @@ elList.addEventListener("click", function (evt) {
 
 //DINAMIK BOLISHI UCHUN FUNCTION OCHIB PARAMETR BERDIK:
 const renderTodos = function (arr, element) {
+  //COUNTERLAR:
+  elAllCount.textContent = todos.length;
+
+  elCompletedCount.textContent = todos.filter(
+    (todo) => todo.isCompleted
+  ).length;
+
+  elUnCompletedCount.textContent = todos.filter(
+    (todo) => !todo.isCompleted
+  ).length;
+
   arr.forEach(function (todo) {
-    //COUNTERLAR:
-    elAllCount.textContent = todos.length;
-
-    elCompletedCount.textContent = todos.filter(
-      (todo) => todo.isCompleted
-    ).length;
-
-    elUnCompletedCount.textContent = todos.filter(
-      (todo) => !todo.isCompleted
-    ).length;
-
     //CREATEELEMENT:
     let newItem = document.createElement("li");
     let newDesc = document.createElement("p");

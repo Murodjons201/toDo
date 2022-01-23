@@ -4,9 +4,13 @@ let elformInputName = document.querySelector(".form__input-name");
 let elFormInput = document.querySelector(".form__input");
 let elList = document.querySelector(".list");
 let elToDoHeading = document.querySelector(".todo__heading");
+
+//GENERATE ELEMENT:
 let elAllBtn = document.querySelector(".btn-all");
 let elCompletedBtn = document.querySelector(".btn-completed");
 let elUnCompletedBtn = document.querySelector(".btn-uncompleted");
+
+//COUNTER ELEMENT:
 let elAllCount = document.querySelector(".all-count");
 let elCompletedCount = document.querySelector(".completed-count");
 let elUnCompletedCount = document.querySelector(".uncompleted-count");
@@ -42,6 +46,17 @@ elList.addEventListener("click", function (evt) {
 //DINAMIK BOLISHI UCHUN FUNCTION OCHIB PARAMETR BERDIK:
 const renderTodos = function (arr, element) {
   arr.forEach(function (todo) {
+    //COUNTERLAR:
+    elAllCount.textContent = todos.length;
+
+    elCompletedCount.textContent = todos.filter(
+      (todo) => todo.isCompleted
+    ).length;
+
+    elUnCompletedCount.textContent = todos.filter(
+      (todo) => !todo.isCompleted
+    ).length;
+
     //CREATEELEMENT:
     let newItem = document.createElement("li");
     let newDesc = document.createElement("p");
@@ -99,4 +114,27 @@ elForm.addEventListener("submit", function (evt) {
   elList.innerHTML = null;
 
   renderTodos(todos, elList);
+});
+
+//GENERATE:
+elAllBtn.addEventListener("click", function () {
+  elList.innerHTML = null;
+
+  renderTodos(todos, elList);
+});
+
+elCompletedBtn.addEventListener("click", function () {
+  let generateComplete = todos.filter((todo) => todo.isCompleted);
+
+  elList.innerHTML = null;
+
+  renderTodos(generateComplete, elList);
+});
+
+elUnCompletedBtn.addEventListener("click", function () {
+  let generateUnComplete = todos.filter((todo) => !todo.isCompleted);
+
+  elList.innerHTML = null;
+
+  renderTodos(generateUnComplete, elList);
 });

@@ -85,7 +85,7 @@ elList.addEventListener("click", function (evt) {
 
     elList.innerHTML = null;
 
-    window.localStorage.setItem("localtodos", JSON.stringify(todos));
+    window.localStorage.setItem("localTodos", JSON.stringify(todos));
 
     renderTodos(todos, elList);
   } else if (evt.target.matches(".checkbox-btn")) {
@@ -97,7 +97,7 @@ elList.addEventListener("click", function (evt) {
 
     elList.innerHTML = null;
 
-    window.localStorage.setItem("localtodos", JSON.stringify(todos));
+    window.localStorage.setItem("localTodos", JSON.stringify(todos));
 
     renderTodos(todos, elList);
   }
@@ -120,7 +120,7 @@ elForm.addEventListener("submit", function (evt) {
 
   todos.push(newTodo);
 
-  window.localStorage.setItem("localtodos", JSON.stringify(todos));
+  window.localStorage.setItem("localTodos", JSON.stringify(todos));
 
   elFormInput.value = null;
   elList.innerHTML = null;

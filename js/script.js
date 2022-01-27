@@ -16,34 +16,7 @@ let elCompletedCount = document.querySelector(".completed-count");
 let elUnCompletedCount = document.querySelector(".uncompleted-count");
 
 //BUSH ERRAY
-let todos = [];
 
-//EVENT DELEGATION:
-elList.addEventListener("click", function (evt) {
-  if (evt.target.matches(".delete-btn")) {
-    let btnTodoId = evt.target.dataset.todoDeleteId * 1;
-
-    let foundTodoIndex = todos.findIndex((todo) => todo.id === btnTodoId);
-
-    todos.splice(foundTodoIndex, 1);
-
-    elList.innerHTML = null;
-
-    renderTodos(todos, elList);
-  } else if (evt.target.matches(".checkbox-btn")) {
-    let checkTodoId = evt.target.dataset.checkId * 1;
-
-    let foundCheckTodo = todos.find((todo) => todo.id === checkTodoId);
-
-    foundCheckTodo.isCompleted = !foundCheckTodo.isCompleted;
-
-    elList.innerHTML = null;
-
-    renderTodos(todos, elList);
-  }
-});
-
-//DINAMIK BOLISHI UCHUN FUNCTION OCHIB PARAMETR BERDIK:
 const renderTodos = function (arr, element) {
   //COUNTERLAR:
   elAllCount.textContent = todos.length;
@@ -95,6 +68,43 @@ const renderTodos = function (arr, element) {
   });
 };
 
+const localTodos = JSON.parse(window.localStorage.getItem("localTodos"));
+
+let todos = localTodos || [];
+
+renderTodos(todos, elList);
+
+//EVENT DELEGATION:
+elList.addEventListener("click", function (evt) {
+  if (evt.target.matches(".delete-btn")) {
+    let btnTodoId = evt.target.dataset.todoDeleteId * 1;
+
+    let foundTodoIndex = todos.findIndex((todo) => todo.id === btnTodoId);
+
+    todos.splice(foundTodoIndex, 1);
+
+    elList.innerHTML = null;
+
+    window.localStorage.setItem("localtodos", JSON.stringify(todos));
+
+    renderTodos(todos, elList);
+  } else if (evt.target.matches(".checkbox-btn")) {
+    let checkTodoId = evt.target.dataset.checkId * 1;
+
+    let foundCheckTodo = todos.find((todo) => todo.id === checkTodoId);
+
+    foundCheckTodo.isCompleted = !foundCheckTodo.isCompleted;
+
+    elList.innerHTML = null;
+
+    window.localStorage.setItem("localtodos", JSON.stringify(todos));
+
+    renderTodos(todos, elList);
+  }
+});
+
+//DINAMIK BOLISHI UCHUN FUNCTION OCHIB PARAMETR BERDIK:
+
 elForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
@@ -109,6 +119,8 @@ elForm.addEventListener("submit", function (evt) {
   };
 
   todos.push(newTodo);
+
+  window.localStorage.setItem("localtodos", JSON.stringify(todos));
 
   elFormInput.value = null;
   elList.innerHTML = null;

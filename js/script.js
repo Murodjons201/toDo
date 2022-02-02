@@ -87,7 +87,11 @@ elList.addEventListener("click", function (evt) {
 
     window.localStorage.setItem("localTodos", JSON.stringify(todos));
 
-    if (localTodos.length === 0) {
+    let localTodosRemove = JSON.parse(
+      window.localStorage.getItem("localTodos")
+    );
+
+    if (localTodosRemove.length === 0) {
       window.localStorage.removeItem("localTodos");
     }
 

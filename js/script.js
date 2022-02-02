@@ -87,6 +87,14 @@ elList.addEventListener("click", function (evt) {
 
     window.localStorage.setItem("localTodos", JSON.stringify(todos));
 
+    let localTodoslength = JSON.parse(
+      window.localStorage.getItem("localTodos")
+    ).length;
+
+    if (localTodoslength === 0) {
+      window.localStorage.removeItem("localTodos");
+    }
+
     renderTodos(todos, elList);
   } else if (evt.target.matches(".checkbox-btn")) {
     let checkTodoId = evt.target.dataset.checkId * 1;
